@@ -21,3 +21,29 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Additional notes
 - The default interaction type for the sample is redirects. The sample can be configured to use redirects by changing the `interactionType` in `app.module.ts` to `InteractionType.Popup`. 
+
+## Proxyconfig.json for api services
+{
+    "/api/*": {
+        "target": "http://localhost:8000",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
+
+## environment settings:
+clientId: angular web application id from AA
+authority: Tenant Id
+apiConfig: 
+   scopes: 'api://{api_aplication_id}/{your_scope}'
+   uri: '{agular_uri}/api'
+
+
+## Azure Tenant Settings
+API permission to {{your apis}} and scopes
+redirect to {this_angular_uri}
+
